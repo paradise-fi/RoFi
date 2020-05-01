@@ -6,9 +6,17 @@ env: SH="docker exec -t container bash -c"
 git:
   depth: false
 
+cache:
+  directories:
+  - docker_images
+
 before_install:
+  - docker load -i docker_images/images.tar || true
   - docker run -d --name container -v $(pwd):/travis -w /travis yaqwsx/rofi tail -f /dev/null
   - docker ps
+
+before_cache:
+  - docker save -o docker_images/images.tar $(docker images -a -q)
 
 script:
   - $SH "make all.gcc"
