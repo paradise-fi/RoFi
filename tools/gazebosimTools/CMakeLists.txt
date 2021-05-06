@@ -1,20 +1,20 @@
 cmake_minimum_required(VERSION 3.11)
 
 
-add_executable(attacher attacher.cpp)
-target_link_libraries(attacher rofisimMessages ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES})
+add_executable(rofi-gazebosim-attacher attacher.cpp)
+target_link_libraries(rofi-gazebosim-attacher rofisimMessages ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES})
 
-add_executable(listener listener.cpp)
-target_link_libraries(listener rofisimMessages ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES})
+add_executable(rofi-gazebosim-listener listener.cpp)
+target_link_libraries(rofi-gazebosim-listener rofisimMessages ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES})
 
-add_executable(ping ping.cpp)
-target_link_libraries(ping rofiHal)
+add_executable(rofi-gazebosim-ping ping.cpp)
+target_link_libraries(rofi-gazebosim-ping rofiHal)
 
-add_executable(commandLine commandLine.cpp)
-target_link_libraries(commandLine rofiHal)
+add_executable(rofi-gazebosim-commandLine commandLine.cpp)
+target_link_libraries(rofi-gazebosim-commandLine rofiHal)
 
-add_executable(roficomCmd roficomCmd.cpp)
-target_link_libraries(roficomCmd rofisimMessages ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES})
+add_executable(rofi-gazebosim-roficomCmd roficomCmd.cpp)
+target_link_libraries(rofi-gazebosim-roficomCmd rofisimMessages ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES})
 
 
 add_subdirectory(worldCreator)
